@@ -1,0 +1,184 @@
+
+                           ¿Que es un estereotipo  en Spring Framework ?
+
+    Un estereotipo en Spring Framework es una anotación que indica el rol o la responsabilidad 
+    de un componente dentro de la aplicación. Los estereotipos permiten a Spring detectar e instanciar 
+    automáticamente los beans anotados, así como proporcionar algunos servicios transversales según el tipo
+    de estereotipo. 
+    ejemplos de estereotipos son:  @Component, @Repository, @Service y @Controller. 
+    Estas anotaciones facilitan el desarrollo y la configuración de las aplicaciones basadas en Spring. 
+
+
+
+
+                     ¿Diferencia entre  los estereotipo (anotaciones) ?
+
+- @Component es un estereotipo genérico para cualquier componente o bean administrado por Spring .
+  que indica que una clase es un componente o bean de Spring, que puede
+  ser detectado e instanciado automáticamente por el framework .
+  Es el estereotipo principal de Spring, del cual se derivan otras anotaciones más
+  específicas como @Repository, @Service, @Controller y @RestController.
+
+
+
+- @Repository es un estereotipo para la capa de persistencia, que se usa para acceder a la base de datos  .
+  indica que una clase es un componente de la capa de persistencia, que se encarga de acceder y manipular los datos de la base de datos . 
+  Es una especialización de la anotación @Component, que añade un valor semántico y permite  la traducción automática
+  de las excepciones relacionadas con la base de datos a excepciones de tipo DataAccessException . 
+  Al usar @Repository, Spring puede detectar e instanciar automáticamente los beans anotados, así como proporcionar 
+  algunos servicios transversales según el tipo de componente . Se recomienda usar @Repository para las clases
+  que implementan interfaces como CrudRepository, JpaRepository o MongoRepository .
+
+
+- @Service es un estereotipo para la capa de servicio, que se usa para manejar la lógica de negocio .
+  indica que una clase es un componente de la capa de servicio, que  maneja la lógica de negocio .
+  Es una especialización de la anotación @Component, que añade un valor semántico. 
+  Se recomienda usar @Service para las clases que implementan el patrón de servicio, 
+  que conectan varios repositorios y agrupan su funcionalidad .
+
+
+
+- @Controller es un estereotipo para la capa de presentación, que se usa para controlar las solicitudes web en Spring MVC   .
+ que indica que una clase es un componente de la capa de presentación, que se encarga 
+ de controlar las solicitudes web en Spring MVC .
+ Es una especialización de la anotación @Component, que añade un valor semántico. 
+ Se recomienda usar @Controller para las clases que implementan el patrón de controlador,
+ que comunican información entre la vista y el modelo . 
+ 
+ - @RestController es una anotación que se usa para crear controladores RESTful,
+   que devuelven datos directamente en el cuerpo de la respuesta, sin necesidad de usar una vista . 
+   Es una combinación de @Controller y @ResponseBody, 
+   que simplifica la creación de servicios web basados en Spring
+   
+   
+   
+- @Value es una anotación que se usa para inyectar valores de propiedades externas o expresiones en spring. 
+  en los campos o métodos de los beans.
+  Para usar @Value, se debe indicar el nombre de la propiedad o la expresión entre paréntesis y comillas,
+  por ejemplo:
+  
+  @Value ("$ {nombre}")
+  private String nombre;
+
+ 
+  @Value ("# {'$ {clientes.postresConsumidos}'.split (',')}")
+  private List<String> postresConsumidos;
+
+
+ @Value ("# {T (java.lang.Math).random () * 100}")
+ private double numeroAleatorio;
+   
+
+
+
+
+                                     ¿ Que es RESTful?
+                                     
+RESTful es un estilo de arquitectura de software que se utiliza en el desarrollo de aplicaciones web. 
+Su nombre proviene de las siglas en inglés de «Representational State Transfer» (Transferencia de Estado Representacional).
+En términos simples, RESTful es una forma de diseñar servicios web que se basa en el protocolo HTTP.
+
+           Los servicios web RESTful tienen las siguientes características:
+ 
+- Utilizan los métodos HTTP (GET, POST, PUT, DELETE, etc.) para realizar operaciones sobre los recursos, 
+  que son la información que se comparte entre el cliente y el servidor.
+
+- Utilizan formatos estándar para representar los recursos, como JSON o XML.
+
+- Utilizan códigos de estado HTTP para indicar el resultado de las operaciones, como 200 (OK), 201 (Created), 404 (Not Found), 500 (Error Server) etc.
+
+- Utilizan URL para identificar los recursos de forma única y jerárquica.
+
+- Son escalables, flexibles y fáciles de integrar con otras aplicaciones.
+Algunos ejemplos de servicios web RESTful son las API de Google, Facebook, Twitter, Amazon, etc.
+ Estas API permiten a los desarrolladores acceder a los datos y funcionalidades de estas plataformas 
+mediante solicitudes HTTP. 
+
+
+  Estas anotaciones son especializaciones de @Component para casos de uso más específicos, y proporcionan beneficios adicionales 
+  al ser procesadas por algunos módulos de Spring . Se recomienda usar la anotación adecuada para cada caso, aunque generalmente
+  se pueden intercambiar.
+
+
+
+
+                          La diferencia entre @Controller y @RestController?
+
+La diferencia entre @Controller y @RestController en Spring es que la primera anotación (@Controller)
+se usa para crear controladores tradicionales que devuelven vistas, 
+mientras que la segunda (@RestController) se usa para crear controladores RESTful que devuelven 
+datos directamente en el cuerpo de la respuesta . 
+
+La anotación @RestController es una combinación de @Controller y @ResponseBody, 
+lo que elimina la necesidad de anotar cada método de manejo de solicitudes con @ResponseBody . 
+
+Por ejemplo, si usamos @Controller, tenemos que hacer algo así:
+
+@Controller
+@RequestMapping("/books")
+public class SimpleBookController {
+
+@GetMapping("/{id}", produces = "application/json")
+public @ResponseBody Book getBook(@PathVariable int id) {
+    return findBookById(id);
+}
+
+private Book findBookById(int id) {
+    // ...
+ }
+
+}
+
+
+Pero si usamos @RestController, podemos simplificar el código así:
+
+@RestController
+@RequestMapping("/books-rest")
+public class SimpleBookRestController {
+
+@GetMapping("/{id}", produces = "application/json")
+public Book getBook(@PathVariable int id) {
+    return findBookById(id);
+}
+
+
+private Book findBookById(int id) {
+    // ...
+ }
+
+}
+
+
+
+
+ 
+                                     ¿ Que es Spring Web?
+                                     
+Spring Web es un módulo de Spring Framework que proporciona soporte para el desarrollo de aplicaciones web basadas en Java. 
+Spring Web incluye varias características, como :
+
+- Spring MVC: un framework para crear aplicaciones web basadas en el patrón Modelo-Vista-Controlador, 
+  que permite separar la lógica de negocio, la presentación y el manejo de las solicitudes.
+
+- Spring WebFlux: un framework para crear aplicaciones web reactivas y no bloqueantes, que aprovechan la programación funcional y los 
+  flujos de datos asíncronos.
+
+- Spring WebSocket: un framework para crear aplicaciones web que usan el protocolo WebSocket, 
+  que permite una comunicación bidireccional entre el cliente y el servidor.
+
+- Spring Web Services: un framework para crear servicios web basados en SOAP, 
+  que siguen el principio de contrato primero y se integran con otras tecnologías de Spring.
+
+- Spring HATEOAS: un framework para crear servicios web basados en REST, 
+  que siguen el principio de HATEOAS (Hypermedia as the Engine of Application State), 
+  que permite navegar por los recursos mediante enlaces.
+
+- Spring REST Docs: un framework para generar documentación de servicios web basados en REST, 
+  que se basa en las pruebas de la aplicación y produce una documentación precisa y fácil de leer.
+  Spring Web es uno de los módulos más populares y utilizados de Spring Framework, 
+  ya que facilita el desarrollo de aplicaciones web modernas, escalables y flexibles, 
+  que se pueden integrar con otras tecnologías de Spring y de Java.
+ 
+
+
+           

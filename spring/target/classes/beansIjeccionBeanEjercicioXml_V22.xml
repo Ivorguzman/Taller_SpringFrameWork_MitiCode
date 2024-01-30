@@ -1,0 +1,75 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+
+	<context:component-scan base-package="com.mitoCode.beans.Ejercicio1Xml_V22"></context:component-scan>
+
+	<bean id="jugador1" class="com.mitoCode.beans.Ejercicio1Xml_V22.Jugador">
+		<property name="id" value="1"></property>
+		<property name="nombre" value="MitoCode"></property>
+		<!-- <property name="equipo" ref="barcelona"></property> -->
+		<property name="equipo" ref="barcelona"></property>
+		<property name="camiseta" ref="camiseta1"></property>
+	</bean>
+
+
+
+	<bean id="camiseta1" class="com.mitoCode.beans.Ejercicio1Xml_V22.Camiseta">
+		<property name="id" value="1"></property>
+		<property name="numero" value="10"></property>
+		<property name="nombre" ref="marca"></property>
+	</bean>
+
+<!-- 	
+                   # OPCION MUY POCO ELEGANTE Y MUY INEFICAZ
+
+      <bean id="jugador2" class="com.mitoCode.beans.Ejercicio1Xml_V22.Jugador">
+		<property name="id" value="1"></property>
+		<property name="nombre" value="MitoCode"></property>
+        <property name="equipo" ref="barcelona"></property>
+		<property name="equipo" ref="juventus"></property>
+		<property name="camiseta" ref="camiseta1"></property>
+	</bean>
+ -->
+
+
+
+	<bean id="marca" class="com.mitoCode.beans.Ejercicio1Xml_V22.Marca">
+		<property name="id" value="1"></property>
+		<property name="nombre" value="Jugador Leonel Messi"></property>
+	</bean>
+
+	<bean id="barcelona" class="com.mitoCode.beans.Ejercicio1Xml_V22.Barcelona"></bean>
+
+	<bean id="juventus" class="com.mitoCode.beans.Ejercicio1Xml_V22.Juventus"></bean>
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

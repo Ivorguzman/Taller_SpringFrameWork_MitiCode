@@ -1,0 +1,71 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+	
+
+
+	<!--
+	<bean id="persona" class="com.mitoCode.AutoWire.Persona" autowire="constructor" scope="singleton" >
+	<bean id="persona" class="com.mitoCode.AutoWire.Persona" autowire="byName" scope="singleton" >
+	 -->
+	<bean id="persona" class="com.mitoCode.AutoWire.Persona" autowire="byType" scope="singleton">
+		<property name="id" value="1"></property>
+		<property name="nombre" value="Ivor Alexander Guzmán Zambrano"></property>
+		<property name="apodo" value="IG"></property>
+	</bean>
+
+
+
+<!-- autowire="byName" busca como  referencia al id="pais" del bean   -->
+	<bean id="pais" class="com.mitoCode.AutoWire.Pais" scope="prototype">
+        <!--<property name="pais"...> Hace referencia al  nombre del metodo setPais(....) de la clase Pais() -->
+		<property name="nombrePais" value="Alemania"></property>
+	</bean>
+
+
+
+<!-- autowire="byName" busca como  referencia la  igual del id="ciudad" con el metodo setCiuda (eliminando la palabra set y colocandolo en miniscula )  -->
+	<bean id="ciudad" class="com.mitoCode.AutoWire.CiudadEuropea">
+	        <!--<property name="ciudadNombre"...> Hace referencia al  nombre del metodo setCiudadNombre(....) de la clase CiudadEuropea() -->
+		<property name="ciudadNombre" value="Ciudad de Trier la más antigua de alemania"></property>
+
+	</bean>
+
+
+
+
+
+
+
+
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,72 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+
+<!-- Indicaque reconoce automaticamente cualquier anotación que perteneca a Spring -->
+	<context:annotation-config></context:annotation-config>
+
+
+	<!--
+	     Se utiliza el  <context:annotation-config></context:annotation-config>  (
+	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"></bean>
+	<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"></bean>
+ -->
+
+	<bean id="messi" class="com.exampleAutoWireRequiredAndQualifer_V19_20.Jugador">
+		<property name="numero" value="10"></property>
+		<property name="nombre" value="Lionel Messi"></property>
+		
+		<!-- <property name="equipo" ref="barcelona"> </property>-->
+
+		<!-- <property name="equipo" ref="juventus"></property> -->
+	</bean>
+	
+
+<!--  	<bean id="equipo" class="com.exampleAutoWireRequiredAndQualifer_V19_20.Juventus"></bean>
+ --> 
+
+
+<!-- 	<bean id="equipo" class="com.exampleAutoWireRequiredAndQualifer_V19_20.Barcelona"></bean>
+ -->
+
+	<bean id="barcelona" class="com.exampleAutoWireRequiredAndQualifer_V19_20.Barcelona"></bean>
+
+  
+<!-- 	<bean id="juventus" class="com.exampleAutoWireRequiredAndQualifer_V19_20.Juventus"></bean> 
+ -->
+
+	<bean id="juventus" class="com.exampleAutoWireRequiredAndQualifer_V19_20.Juventus">
+		<qualifier value="juventusCualificado"></qualifier>
+	</bean>
+
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

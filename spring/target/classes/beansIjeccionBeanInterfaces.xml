@@ -1,0 +1,52 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+<!-- Utilizado para: @Autowire private IEquipo equipo; -->
+	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"></bean>
+
+	<bean id="messi" class="com.mitoCode.beans.ClasesInterfaces_V18.Jugador">
+
+		<property name="numero" value="10"></property>
+		<property name="nombre" value="Lionel Messi"></property>
+		<!-- <property name="equipo" ref="barcelona"></property> -->
+		<!-- <property name="equipo" ref="juventus"></property> -->
+	</bean>
+
+<!-- 	<bean id="barcelona" class="com.mitoCode.beans.ClasesInterfaces_V18.Barcelona"></bean>
+ -->
+
+	<bean id="barcelona" class="com.mitoCode.beans.ClasesInterfaces_V18.Barcelona"></bean>
+
+
+<!-- 	<bean id="juventus" class="com.mitoCode.beans.ClasesInterfaces_V18.Juventus"></bean>
+ -->
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

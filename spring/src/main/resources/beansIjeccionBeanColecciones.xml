@@ -1,0 +1,78 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+
+
+	<!-- ************* Ijección de Objetos por medio de el valor de referencia a otro bean **************** -->
+	<bean id="persona" class="com.mitoCode.Colecciones.Persona" scope="singleton">
+
+		<property name="pais" ref="paisAdoptado"></property>
+
+
+		<property name="id" value="1"></property>
+		<property name="nombre" value="Ivor Alexander Guzmán Zambrano"></property>
+		<property name="apodo" value="IG"></property>
+	</bean>
+
+
+	<bean id="paisAdoptado" class="com.mitoCode.Colecciones.Pais" scope="prototype">
+		<!--<property name="nombrePais"...> Hace referencia al parametro del metode setNombrePais(String nombrePais) -->
+		<property name="nombrePais" value="Alemania"></property>
+		<!-- Aconcejable a listas pequeñas -->
+		<property name="ciudades">
+			<list>
+				<ref bean="ciudadAdoptada1" />
+				<ref bean="ciudadAdoptada2" />
+				<ref bean="ciudadAdoptada3" />
+			</list>
+		</property>
+	</bean>
+
+
+	<bean id="ciudadAdoptada1" class="com.mitoCode.Colecciones.Ciudad" scope="prototype">
+		<!--<property name="?"...> Hace referencia al parametro del metodo setMiCiudad(String miCiudad) -->
+		<property name="miCiudad" value="Ciudad de Trier"></property>
+	</bean>
+	<bean id="ciudadAdoptada2" class="com.mitoCode.Colecciones.Ciudad" scope="prototype">
+		<!--<property name="?"...> Hace referencia al parametro del metodo setMiCiudad(String miCiudad) -->
+		<property name="miCiudad" value=" Ciudad de Berlin"></property>
+	</bean>
+	<bean id="ciudadAdoptada3" class="com.mitoCode.Colecciones.Ciudad" scope="prototype">
+		<!--<property name="?"...> Hace referencia al parametro del metodo setMiCiudad(String miCiudad) -->
+		<property name="miCiudad" value="Ciudad de Babaria"></property>
+	</bean>
+
+
+	<alias name="persona" alias="miAliasPersona" />
+
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

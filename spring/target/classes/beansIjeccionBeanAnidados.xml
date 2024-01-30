@@ -1,0 +1,90 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+
+
+	<!-- ************* Ijección de Objetos por medio de el valor de referencia a otro bean **************** -->
+	<!-- Hacen referencia al los seters [setNombre(String nombre)] -->
+	<!-- <bean id="persona" class="com.mitoCode.beans.InjeccionDeObjetos.Persona" scope="singleton">
+		
+		<property name="pais" ref="paisAdoptado"></property>
+		<property name="ciudad" ref="ciudadAdoptada"></property>
+
+		<property name="id" value="1"></property>
+		<property name="nombre" value="Ivor Alexander Guzmán Zambrano"></property>
+		<property name="apodo" value="IG"></property>
+		</bean>
+
+
+		<bean id="paisAdoptado" class="com.mitoCode.beans.InjeccionDeObjetos.Pais" scope="prototype">
+		<property name="nombrePais"...> Hace referencia al parametro del metode setNombrePais(String nombrePais)
+		<property name="nombrePais" value="Alemania"></property>
+		</bean>
+
+
+		<bean id="ciudadAdoptada" class="com.mitoCode.beans.InjeccionDeObjetos.Ciudad" scope="prototype">
+		<property name="?"...> Hace referencia al parametro del metodo setMiCiudad(String miCiudad)
+		<property name="miCiudad" value=" Ciudad de Trier"></property>
+		</bean>
+	-->
+
+	<!-- ************* Ijección de Objetos por medio de bean anidados **************** -->
+	<bean id="persona" class="com.mitoCode.beans.InjeccionBeanAnidados.Persona" scope="singleton">
+		<property name="pais">
+			<bean id="paisAdoptado" class="com.mitoCode.beans.InjeccionBeanAnidados.Pais" scope="prototype">
+				<!--<property name="nombrePais"...> Hace referencia al parametro del metode setNombrePais(String nombrePais) -->
+				<property name="nombrePais" value="Alemania"></property>
+			</bean>
+		</property>
+
+
+		<property name="ciudad">
+			<bean id="ciudadAdoptada" class="com.mitoCode.beans.InjeccionBeanAnidados.Ciudad" scope="prototype">
+				<!--<property name="?"...> Hace referencia al parametro del metodo setMiCiudad(String miCiudad) -->
+				<property name="miCiudad" value=" Ciudad de Trier"></property>
+			</bean>
+		</property>
+
+
+		<property name="id" value="1"></property>
+		<property name="nombre" value="Ivor Alexander Guzmán Zambrano"></property>
+		<property name="apodo" value="IG"></property>
+	</bean>
+
+
+
+
+
+
+
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

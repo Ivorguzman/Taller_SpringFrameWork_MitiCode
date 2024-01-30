@@ -1,0 +1,10 @@
+## Bing
+Este mensaje indica que tu IDE de Eclipse no puede descargar los recursos externos, como los archivos DTD o XSD, que se referencian en tu archivo xml de spring boot. Esto puede causar problemas de validación o de funcionamiento de tu proyecto.
+Para resolver este mensaje, puedes intentar lo siguiente:
+- Abre la ventana de preferencias de Eclipse (Window > Preferences).
+- Ve a XML (Wild Web Developer).
+- Marca la opción "Download external resources like referenced DTD,XSD".
+- Aplica los cambios y cierra la ventana.
+- Actualiza tu proyecto de Maven y limpia tu proyecto de Eclipse.
+Estos pasos se basan en la respuesta de Johann en Stack Overflow. También puedes consultar otras fuentes que tratan el mismo problema .
+Espero que esto te ayude a solucionar el mensaje de error. Si tienes alguna otra duda, no dudes en preguntarme. 😊

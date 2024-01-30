@@ -1,0 +1,87 @@
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+	<!-- <bean id="messi" class="com.mitoCode.beans.Stereotypes_V_21.Jugador">
+
+		<property name="numero" value="10"></property>
+		<property name="no0mbre" value="Messi"></property> 
+	-->
+        <!-- <property name="equipo" ref="barcelona"></property> -->
+        <!-- <property name="equipo" ref="juventus"></property> -->
+	<!-- </bean> -->
+
+
+   <!--
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"></bean>
+    <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"></bean>
+      son innecesarias al usar (<context:annotation-config></context:annotation-config>)
+ -->
+
+
+    
+    <!-- Indicaque reconoce automaticamente cualquier anotación que perteneca a Spring 
+             Recoconoce alguna anotacione propias de java JSR-250 y de spring no detecta los beans
+                              (ruta en form global)
+	        <context:annotation-config></context:annotation-config>
+	        son innecesarias al usar el tag: <context:component-scan base-package="com.mitoCode"></context:component-scan>
+     -->
+
+
+	
+ 
+ <!-- Hace referencia a la ruta donde se encuentra todas las anotaciones stereotipos que son propias de spring en forma espesifica
+      y SI detecta los beans.
+                    (ruta en paquete espesifico)
+ -->
+            <context:component-scan base-package="com.mitoCode.beans.Stereotypes_V_21"></context:component-scan> 
+	
+	
+	<!-- Hace referencia a la ruta donde se encuentra todas las anotaciones stereotipos que son propias de spring en forma global
+         y SI detecta los beans.
+                     (ruta en paquete Golobal)
+            <context:component-scan base-package="com.mitoCode"></context:component-scan> 
+	 -->
+	
+ 
+    
+ <!--    <bean id="barcelona" class="com.mitoCode.beans.Stereotypes_V_21.Barcelona"></bean> 
+
+	<bean id="juventus" class="com.mitoCode.beans.Stereotypes_V_21.Juventus">
+	</bean> -->
+
+<!-- 	<bean id="juventus" class="com.mitoCode.beans.Stereotypes_V_21.Juventus">
+		<qualifier value="juventusCualificado"></qualifier>
+	</bean> -->
+
+
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
