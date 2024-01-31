@@ -11,8 +11,8 @@ public class App {
 
 
 		Marca marca = new Marca();
-		marca.setId(2);
-		marca.setNombre("Puma");
+		marca.setId(3);
+		marca.setNombre("Adidas");
 
 		@SuppressWarnings("resource")
 		ApplicationContext contenedor = new ClassPathXmlApplicationContext("beans.xml");
