@@ -1,4 +1,4 @@
-package com.mitoCode.implementaciones;
+package com.mitoCode.dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,44 +20,20 @@ public class DAOMarcaImpl implements DAOMarca {
 	 * Esta interfaz se usa para obtener objetos de tipo Connection
 	 * que son los que te permiten ejecutar consultas SQL y manipular los
 	 * datos de la base de datos.
-	 * la interfaz DataSource y que sirve para obtener conexiones a la
-	 * base de datos.
-	 */
-
-
-	/*
-	 * SIN USAR INYECCION DE DEPENDENCIA
-	 * 
-	 * private DataSource dataSource;
-	 * 
-	 * public void init() {
-	 * 
-	 * // Crear una instancia de DriverManagerDataSource
-	 * DriverManagerDataSource ds = new DriverManagerDataSource();
-	 * 
-	 * 
-	 * // Establecer las propiedades de la conexión
-	 * ds.setDriverClassName("com.mysql.jdbc.Driver");
-	 * ds.setUrl("jdbc:mysql://localhost/db?serverTimezone=UTC");
-	 * ds.setUsername("root");
-	 * ds.setPassword("");
-	 * 
-	 * 
-	 * // Asignar el dataSource al atributo
-	 * this.dataSource = ds;
-	 * }
 	 */
 	@Autowired
-	private DataSource dataSource;
+	private DataSource datosConeccion;
+	// Creación consulta sql
+	String sql = "INSERT INTO marca(id,nombre) values(?,?)";
 
-	@Override //
+
+	@Override // Iplementacion de la Interfaz
 	public void registrar(Marca marca) throws Exception {
 
-		// Creación consulta sql
-		String sql = "INSERT INTO marca(id,nombre) values(?,?)";
-		String sql2 = "";
+		System.out.println(marca.getId());
+		System.out.println(marca.getNombre());
 
-		try (Connection conn = this.dataSource.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)){
+		try (Connection conn = this.datosConeccion.getConnection(); PreparedStatement ps = conn.prepareStatement(this.sql)){
 			ps.setInt(1, marca.getId());
 			ps.setString(2, marca.getNombre());
 			ps.executeUpdate();
