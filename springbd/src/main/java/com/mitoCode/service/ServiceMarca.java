@@ -1,4 +1,4 @@
-package com.mitoCode.service.interfaz;
+package com.mitoCode.service;
 
 import com.mitoCode.beans.Marca;
 

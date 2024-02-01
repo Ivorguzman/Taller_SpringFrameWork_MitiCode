@@ -1,4 +1,4 @@
-package com.mitoCode.dao.impl;
+package com.mitoCode.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.mitoCode.beans.Marca;
-import com.mitoCode.dao.DAOMarca;
 
 @Repository
 public class DAOMarcaImpl implements DAOMarca {

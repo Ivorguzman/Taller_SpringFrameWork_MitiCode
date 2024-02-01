@@ -40,8 +40,8 @@
 
 
 	<bean id="jugador1" class="com.mitoCode.beans.Jugador">
-		<property name="id" value="1"></property>
-		<property name="nombre" value="MitoCode"></property>
+		<property name="id" value="2"></property>
+		<property name="nombre" value="Messi"></property>
 		<property name="equipo" ref="equipo1"></property>
 		<property name="camiseta" ref="camiseta1"></property>
 	</bean>

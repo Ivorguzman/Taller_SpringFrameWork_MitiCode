@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import com.mitoCode.beans.Marca;
 import com.mitoCode.dao.DAOMarca;
-import com.mitoCode.service.interfaz.ServiceMarca;
 
 
 @Repository

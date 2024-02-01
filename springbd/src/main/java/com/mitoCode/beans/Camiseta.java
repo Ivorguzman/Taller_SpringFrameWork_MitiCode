@@ -3,7 +3,7 @@ package com.mitoCode.beans;
 public class Camiseta {
 
 	private int id;
-	private String numero;
+	private int numero;
 	private Marca marca;
 
 
@@ -17,11 +17,11 @@ public class Camiseta {
 
 	}
 
-	public String getNumero() {
+	public int getNumero() {
 		return this.numero;
 	}
 
-	public void setNumero(String numero) {
+	public void setNumero(int numero) {
 		this.numero = numero;
 
 

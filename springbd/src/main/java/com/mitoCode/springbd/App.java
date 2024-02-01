@@ -3,11 +3,8 @@ package com.mitoCode.springbd;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.mitoCode.beans.Equipo;
 import com.mitoCode.beans.Jugador;
-import com.mitoCode.beans.Marca;
-import com.mitoCode.service.ServiceJugadorImpl;
-import com.mitoCode.service.interfaz.ServiceJugador;
+import com.mitoCode.service.ServiceJugador;
 
 
 public class App {
@@ -15,12 +12,13 @@ public class App {
 
 		@SuppressWarnings("resource")
 		ApplicationContext appContex = new ClassPathXmlApplicationContext("beans.xml");
+		
+		ServiceJugador sm = (ServiceJugador) appContex.getBean("serviceJugadorImpl");
 
+		// Marca mar3 = (Marca) appContex.getBean("marca3");
+		// Equipo eq1 = (Equipo) appContex.getBean("equipo1");
+		Jugador jugador = (Jugador) appContex.getBean("jugador1");
 
-		ServiceJugador sm = appContex.getBean("serviceJugadorImpl", ServiceJugadorImpl.class);
-		Marca mar3 = appContex.getBean("marca3", Marca.class);
-		Equipo eq1 = appContex.getBean("equipo1", Equipo.class);
-		Jugador jugador = appContex.getBean("jugador1", Jugador.class);
 
 
 		try{
