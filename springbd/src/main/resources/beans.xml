@@ -19,7 +19,7 @@
 
 	<bean id="marca3" class="com.mitoCode.beans.Marca">
 		<property name="id" value="3"></property>
-		<property name="nombre" value="Marca3"></property>
+		<property name="nombre" value="Leonel Messi"></property>
 	</bean>
 
 
@@ -27,6 +27,12 @@
 	<bean id="equipo1" class="com.mitoCode.beans.Equipo">
 		<property name="id" value="1"></property>
 		<property name="nombre" value="Barcelona"></property>
+	</bean>
+	
+
+	<bean id="equipo2" class="com.mitoCode.beans.Equipo">
+		<property name="id" value="1"></property>
+		<property name="nombre" value="Juventus"></property>
 	</bean>
 	
 	
@@ -40,9 +46,9 @@
 
 
 	<bean id="jugador1" class="com.mitoCode.beans.Jugador">
-		<property name="id" value="2"></property>
-		<property name="nombre" value="Messi"></property>
-		<property name="equipo" ref="equipo1"></property>
+		<property name="id" value="3"></property>
+		<property name="nombre" value="Ivor"></property>
+		<property name="equipo" ref="equipo2"></property>
 		<property name="camiseta" ref="camiseta1"></property>
 	</bean>
 
